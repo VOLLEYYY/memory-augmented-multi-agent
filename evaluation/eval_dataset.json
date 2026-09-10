@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "name": "星屋 HomeStar 售后客服评测集",
+    "version": "1.0",
+    "created": "2026-09-08",
+    "business": "智能家居售后客服（退换货 / 保修 / 物流 / 退款 / 产品故障排查）",
+    "types_note": "type 覆盖四类：需知识库（KB 检索）、需工具（售后工具调用）、需记忆（跨会话上下文）、需评审（开放问答，模型B评审）",
+    "intent_note": "intent 为售后业务分流五类：咨询 / 订单 / 退换 / 物流 / 投诉（订单类因存在 query_order 工具单列）"
+  },
+  "questions": [
+    {"id": "q01", "question": "智能门锁支持七日无理由退货吗？", "type": "需知识库", "intent": "咨询", "route_expected": "qa", "tool_expected": null, "kb_source": "售后-七日无理由退货.md", "self_service": true, "prior_context": null},
+    {"id": "q02", "question": "扫地机器人的保修期是多久？", "type": "需知识库", "intent": "咨询", "route_expected": "qa", "tool_expected": null, "kb_source": "售后-三包与保修.md", "self_service": true, "prior_context": null},
+    {"id": "q03", "question": "智能音箱连不上 Wi-Fi 怎么办？", "type": "需知识库", "intent": "咨询", "route_expected": "qa", "tool_expected": null, "kb_source": "售后-产品常见问题FAQ.md", "self_service": true, "prior_context": null},
+    {"id": "q04", "question": "金卡会员有哪些权益？", "type": "需知识库", "intent": "咨询", "route_expected": "qa", "tool_expected": null, "kb_source": "售后-会员权益与延保.md", "self_service": true, "prior_context": null},
+    {"id": "q05", "question": "官方延保一年要多少钱？", "type": "需知识库", "intent": "咨询", "route_expected": "qa", "tool_expected": null, "kb_source": "售后-会员权益与延保.md", "self_service": true, "prior_context": null},
+    {"id": "q06", "question": "商品签收后发现破损怎么办？", "type": "需知识库", "intent": "咨询", "route_expected": "qa", "tool_expected": null, "kb_source": "售后-物流配送与签收.md", "self_service": true, "prior_context": null},
+    {"id": "q07", "question": "用支付宝付款的退款多久到账？", "type": "需知识库", "intent": "咨询", "route_expected": "qa", "tool_expected": null, "kb_source": "售后-退款与支付.md", "self_service": true, "prior_context": null},
+    {"id": "q08", "question": "无理由退货的运费由谁承担？", "type": "需知识库", "intent": "咨询", "route_expected": "qa", "tool_expected": null, "kb_source": "售后-七日无理由退货.md", "self_service": true, "prior_context": null},
+    {"id": "q09", "question": "扫地机器人报错 E5 是什么意思？", "type": "需知识库", "intent": "咨询", "route_expected": "qa", "tool_expected": null, "kb_source": "售后-产品常见问题FAQ.md", "self_service": true, "prior_context": null},
+    {"id": "q10", "question": "预售商品一般多久发货？", "type": "需知识库", "intent": "咨询", "route_expected": "qa", "tool_expected": null, "kb_source": "售后-物流配送与签收.md", "self_service": true, "prior_context": null},
+    {"id": "q11", "question": "帮我查一下订单 A123 的状态", "type": "需工具", "intent": "订单", "route_expected": "tools", "tool_expected": "query_order", "kb_source": null, "self_service": true, "prior_context": null},
+    {"id": "q12", "question": "我的快递到哪了？单号 SF1234567890", "type": "需工具", "intent": "物流", "route_expected": "tools", "tool_expected": "query_logistics", "kb_source": null, "self_service": true, "prior_context": null},
+    {"id": "q13", "question": "我要对订单 A123 申请退款", "type": "需工具", "intent": "退换", "route_expected": "tools", "tool_expected": "apply_refund", "kb_source": null, "self_service": true, "prior_context": null},
+    {"id": "q14", "question": "查一下物流 SF1234567890 的轨迹", "type": "需工具", "intent": "物流", "route_expected": "tools", "tool_expected": "query_logistics", "kb_source": null, "self_service": true, "prior_context": null},
+    {"id": "q15", "question": "订单 A456 发货了吗？", "type": "需工具", "intent": "订单", "route_expected": "tools", "tool_expected": "query_order", "kb_source": null, "self_service": true, "prior_context": null},
+    {"id": "q16", "question": "订单 A123 我想退货", "type": "需工具", "intent": "退换", "route_expected": "tools", "tool_expected": "apply_refund", "kb_source": null, "self_service": true, "prior_context": null},
+    {"id": "q17", "question": "那台门锁的保修期是多久？", "type": "需记忆", "intent": "咨询", "route_expected": "qa", "tool_expected": null, "kb_source": "售后-三包与保修.md", "self_service": true, "prior_context": "我买的是星屋 A100 智能门锁"},
+    {"id": "q18", "question": "上次说的音箱连不上网，现在怎么办？", "type": "需记忆", "intent": "咨询", "route_expected": "qa", "tool_expected": null, "kb_source": "售后-产品常见问题FAQ.md", "self_service": true, "prior_context": "我的智能音箱一直连不上 Wi-Fi"},
+    {"id": "q19", "question": "我上次买的那个灯泡，保修多久？", "type": "需记忆", "intent": "咨询", "route_expected": "qa", "tool_expected": null, "kb_source": "售后-三包与保修.md", "self_service": true, "prior_context": "我买了一个智能灯泡"},
+    {"id": "q20", "question": "我住新疆，上次问的包裹几天能到？", "type": "需记忆", "intent": "咨询", "route_expected": "qa", "tool_expected": null, "kb_source": "售后-物流配送与签收.md", "self_service": true, "prior_context": "我住在新疆"},
+    {"id": "q21", "question": "我的智能门锁指纹失灵了，怎么解决？", "type": "需评审", "intent": "咨询", "route_expected": "qa", "tool_expected": null, "kb_source": "售后-产品常见问题FAQ.md", "self_service": true, "prior_context": null},
+    {"id": "q22", "question": "退货和换货有什么区别？", "type": "需评审", "intent": "咨询", "route_expected": "qa", "tool_expected": null, "kb_source": "售后-七日无理由退货.md", "self_service": true, "prior_context": null},
+    {"id": "q23", "question": "这个智能音箱值得买吗？", "type": "需评审", "intent": "咨询", "route_expected": "qa", "tool_expected": null, "kb_source": null, "self_service": true, "prior_context": null},
+    {"id": "q24", "question": "我要投诉，客服态度太差了", "type": "需知识库", "intent": "投诉", "route_expected": "qa", "tool_expected": null, "kb_source": "售后-售后服务流程.md", "self_service": false, "prior_context": null},
+    {"id": "q25", "question": "你们的产品质量有问题，我要投诉", "type": "需知识库", "intent": "投诉", "route_expected": "qa", "tool_expected": null, "kb_source": "售后-售后服务流程.md", "self_service": false, "prior_context": null}
+  ]
+}

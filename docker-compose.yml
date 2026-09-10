@@ -1,0 +1,52 @@
+# ============================================================================
+# docker-compose：app + 可选 Qdrant 服务端
+#
+# 启动：docker compose up --build
+#   - 模型 key 从项目根 `.env` 读取（compose 自动做 ${VAR} 插值），不打进镜像
+#   - 知识库只读挂载；记忆库/向量库落到命名卷 `state`（持久化）
+#   - 默认用本地嵌入式 Qdrant（无需额外容器）；想横向扩展/多实例共享时
+#     再启用 qdrant 服务：docker compose --profile with-qdrant up
+# ============================================================================
+
+services:
+  app:
+    build: .
+    image: multi-agent-aftersales:latest
+    container_name: multi-agent-aftersales
+    ports:
+      - "8000:8000"
+    environment:
+      MODEL_A_NAME: ${MODEL_A_NAME:-deepseek-v4-pro}
+      MODEL_A_BASE_URL: ${MODEL_A_BASE_URL:-https://api.deepseek.com/v1}
+      MODEL_A_API_KEY: ${MODEL_A_API_KEY:?请在项目根 .env 配置 MODEL_A_API_KEY}
+      MODEL_B_NAME: ${MODEL_B_NAME:-deepseek-v4-flash}
+      MODEL_B_BASE_URL: ${MODEL_B_BASE_URL:-https://api.deepseek.com/v1}
+      MODEL_B_API_KEY: ${MODEL_B_API_KEY:?请在项目根 .env 配置 MODEL_B_API_KEY}
+      HF_ENDPOINT: https://hf-mirror.com
+      # 状态数据落在命名卷，避免单文件挂载踩 SQLite WAL 锁
+      SQLITE_MEMORY_PATH: /app/state/memory.db
+      QDRANT_PATH: /app/state/qdrant_data
+      KNOWLEDGE_BASE_PATH: /app/data/knowledge_base
+    volumes:
+      - ./data/knowledge_base:/app/data/knowledge_base:ro   # 知识库只读挂载
+      - state:/app/state                                      # 记忆库 + 向量库持久化
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8000/api/v1/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
+    restart: unless-stopped
+
+  # 可选：Qdrant 服务端模式（默认本地嵌入式即可；多实例共享/生产才需要）
+  qdrant:
+    image: qdrant/qdrant:latest
+    profiles: ["with-qdrant"]
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_storage:/qdrant/storage
+
+volumes:
+  state:
+  qdrant_storage:

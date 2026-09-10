@@ -1,0 +1,30 @@
+# ===== 密钥与配置（绝不入库）=====
+.env
+.env.local
+.env.*.local
+
+# ===== 数据与运行时产物 =====
+# 向量库 / 记忆库：本地运行态数据，含真实会话内容，不入库
+qdrant_data/
+memory.db
+memory.db-wal
+memory.db-shm
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# ===== 日志 =====
+*.log
+uvicorn_*.log
+
+# ===== 虚拟环境 =====
+.venv/
+venv/
+env/
+
+# ===== IDE =====
+.idea/
+.vscode/
+
+# ===== 本地工具配置 =====
+.claude/settings.local.json

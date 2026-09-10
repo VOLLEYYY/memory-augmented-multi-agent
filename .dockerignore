@@ -1,0 +1,22 @@
+# 不打进镜像：秘密、数据、日志、缓存（数据目录由 docker-compose 挂载）
+.env
+.git
+.gitignore
+.idea
+.pytest_cache
+__pycache__
+**/__pycache__
+*.pyc
+*.log
+
+# 运行时数据（向量库/记忆库/评测结果，走 volume 挂载，不 bake 进镜像）
+qdrant_data/
+memory.db
+memory.db-wal
+memory.db-shm
+data/eval/
+
+# 本地文档/日志（与运行无关）
+*.md
+项目日志-*.md
+uvicorn_*.log

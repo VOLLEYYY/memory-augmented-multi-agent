@@ -1,0 +1,30 @@
+# ===== Web 层（D0-D1，现在就先装）=====
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+python-dotenv
+
+# ===== LangChain / LangGraph（D2 起）=====
+openai
+langchain
+langchain-openai
+langchain-core
+langgraph
+langgraph-checkpoint-sqlite
+aiosqlite
+
+# ===== 检索（D3 起；sentence-transformers 会连带 torch ~2GB+，可等 D3 再装）=====
+qdrant-client
+rank-bm25
+# sentence-transformers
+
+# ===== 容错 / 重试 =====
+tenacity
+
+# ===== 限流 =====
+slowapi
+
+# ===== 测试 =====
+pytest
+pytest-asyncio

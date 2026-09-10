@@ -1,0 +1,184 @@
+{
+  "config": {
+    "embedding_model": "BAAI/bge-small-zh-v1.5",
+    "top_k": 5,
+    "reranker": ""
+  },
+  "results": {
+    "bm25": {
+      "什么是混合检索？": [
+        {
+          "source": "rag_hybrid_retrieval.md",
+          "score": 20.3471
+        },
+        {
+          "source": "rag_hybrid_retrieval.md",
+          "score": 16.6813
+        },
+        {
+          "source": "rag_chunking_strategies.md",
+          "score": 6.0591
+        }
+      ],
+      "RAG 评估有哪些指标？": [
+        {
+          "source": "rag_evaluation.md",
+          "score": 22.5617
+        },
+        {
+          "source": "rag_evaluation.md",
+          "score": 19.6312
+        },
+        {
+          "source": "agent_memory_multiagent.md",
+          "score": 3.3506
+        }
+      ],
+      "LangGraph 是什么？": [
+        {
+          "source": "agent_tools.md",
+          "score": 5.4528
+        },
+        {
+          "source": "agent_tools.md",
+          "score": 4.948
+        },
+        {
+          "source": "agent_react.md",
+          "score": 3.9565
+        }
+      ],
+      "文档分块有哪些策略？": [
+        {
+          "source": "rag_chunking_strategies.md",
+          "score": 20.257
+        },
+        {
+          "source": "rag_intro.md",
+          "score": 17.7307
+        },
+        {
+          "source": "rag_chunking_strategies.md",
+          "score": 12.1317
+        }
+      ]
+    },
+    "hybrid": {
+      "什么是混合检索？": [
+        {
+          "source": "rag_hybrid_retrieval.md",
+          "score": 0.0328
+        },
+        {
+          "source": "rag_hybrid_retrieval.md",
+          "score": 0.0323
+        },
+        {
+          "source": "rag_intro.md",
+          "score": 0.031
+        }
+      ],
+      "RAG 评估有哪些指标？": [
+        {
+          "source": "rag_evaluation.md",
+          "score": 0.0328
+        },
+        {
+          "source": "rag_evaluation.md",
+          "score": 0.0323
+        },
+        {
+          "source": "rag_chunking_strategies.md",
+          "score": 0.0308
+        }
+      ],
+      "LangGraph 是什么？": [
+        {
+          "source": "rag_chunking_strategies.md",
+          "score": 0.031
+        },
+        {
+          "source": "langgraph.md",
+          "score": 0.0164
+        },
+        {
+          "source": "agent_tools.md",
+          "score": 0.0164
+        }
+      ],
+      "文档分块有哪些策略？": [
+        {
+          "source": "rag_chunking_strategies.md",
+          "score": 0.0328
+        },
+        {
+          "source": "rag_chunking_strategies.md",
+          "score": 0.032
+        },
+        {
+          "source": "rag_intro.md",
+          "score": 0.032
+        }
+      ]
+    },
+    "hybrid_rerank": {
+      "什么是混合检索？": [
+        {
+          "source": "rag_hybrid_retrieval.md",
+          "score": 0.9859
+        },
+        {
+          "source": "rag_hybrid_retrieval.md",
+          "score": 0.2788
+        },
+        {
+          "source": "rag_intro.md",
+          "score": 0.0439
+        }
+      ],
+      "RAG 评估有哪些指标？": [
+        {
+          "source": "rag_evaluation.md",
+          "score": 0.9985
+        },
+        {
+          "source": "rag_evaluation.md",
+          "score": 0.9889
+        },
+        {
+          "source": "rag_chunking_strategies.md",
+          "score": 0.197
+        }
+      ],
+      "LangGraph 是什么？": [
+        {
+          "source": "langgraph.md",
+          "score": 0.9985
+        },
+        {
+          "source": "langgraph.md",
+          "score": 0.9744
+        },
+        {
+          "source": "agent_tools.md",
+          "score": 0.0
+        }
+      ],
+      "文档分块有哪些策略？": [
+        {
+          "source": "rag_chunking_strategies.md",
+          "score": 0.9951
+        },
+        {
+          "source": "rag_intro.md",
+          "score": 0.8842
+        },
+        {
+          "source": "rag_chunking_strategies.md",
+          "score": 0.4156
+        }
+      ]
+    }
+  },
+  "rerank_load_seconds": 91.0
+}
